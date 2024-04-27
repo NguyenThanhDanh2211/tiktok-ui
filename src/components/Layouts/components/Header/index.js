@@ -25,6 +25,7 @@ function Header() {
             <FontAwesomeIcon icon={faCircleXmark} />
           </button>
           <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+
           <button className={cx('search-btn')}>
             <FontAwesomeIcon icon={faSearch} />
           </button>
