@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
+import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -20,7 +21,7 @@ function Header() {
 
   useEffect(() => {
     setTimeout(() => {
-      setSearchResult([1, 2, 3]);
+      setSearchResult([]);
     }, 0);
   }, []);
 
@@ -64,7 +65,9 @@ function Header() {
           </Tippy>
         </div>
 
-        <div className={cx('action')}></div>
+        <div className={cx('action')}>
+          <Button outline>Login 20:00</Button>
+        </div>
       </div>
     </header>
   );
