@@ -6,11 +6,12 @@ import {
   faSearch,
   faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react';
+import Tippy from '@tippyjs/react/headless';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
+import AccountItem from '~/components/AccountItem';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +20,7 @@ function Header() {
 
   useEffect(() => {
     setTimeout(() => {
-      setSearchResult([1, 2]);
+      setSearchResult([1, 2, 3]);
     }, 0);
   }, []);
 
@@ -30,36 +31,41 @@ function Header() {
           <img src={images.logo} alt="Tiktok" />
         </div>
 
-        <Tippy
-          interactive
-          visible={searchResult.length > 0}
-          render={(attrs) => (
-            <PopperWrapper>
-              <div className={cx('search-result')} tabIndex={-1} {...attrs}>
-                Result
+        <div>
+          <Tippy
+            interactive
+            visible={searchResult.length > 0}
+            render={(attrs) => (
+              <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                <PopperWrapper>
+                  <h4 className={cx('search-title')}>Accounts</h4>
+                  <AccountItem />
+                  <AccountItem />
+                  <AccountItem />
+                  <AccountItem />
+                </PopperWrapper>
               </div>
-            </PopperWrapper>
-          )}
-        >
-          <div className={cx('search')}>
-            <input
-              placeholder="Search accounts and videos"
-              spellCheck={false}
-            />
-            <button className={cx('clear')}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
-            <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+            )}
+          >
+            <div className={cx('search')}>
+              <input
+                placeholder="Search accounts and videos"
+                spellCheck={false}
+              />
+              <button className={cx('clear')}>
+                <FontAwesomeIcon icon={faCircleXmark} />
+              </button>
+              <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
-            <button className={cx('search-btn')}>
-              <FontAwesomeIcon icon={faSearch} />
-            </button>
-          </div>
-        </Tippy>
+              <button className={cx('search-btn')}>
+                <FontAwesomeIcon icon={faSearch} />
+              </button>
+            </div>
+          </Tippy>
+        </div>
 
         <div className={cx('action')}></div>
       </div>
-      <div>17:13</div>
     </header>
   );
 }
