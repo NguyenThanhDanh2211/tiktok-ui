@@ -66,6 +66,7 @@ function Header() {
         </div>
 
         <div className={cx('action')}>
+          <Button text>Upload</Button>
           <Button primary>Login</Button>
         </div>
       </div>
