@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faCircleQuestion,
   faCircleXmark,
   faEarthAsia,
   faEllipsisVertical,
   faKeyboard,
-  faQuestion,
   faSearch,
   faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
@@ -27,7 +27,7 @@ const MENU_ITEMS = [
     title: 'English',
   },
   {
-    icon: <FontAwesomeIcon icon={faQuestion} />,
+    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
     title: 'Feedback and help',
     to: '/feedback',
   },
@@ -90,7 +90,7 @@ function Header() {
           <Button text>Upload</Button>
           <Button primary>Login</Button>
 
-          <Menu items={[MENU_ITEMS]}>
+          <Menu items={MENU_ITEMS}>
             <button className={cx('more-btn')}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
