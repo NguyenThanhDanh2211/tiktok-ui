@@ -9,6 +9,8 @@ function Button({
   href,
   primary = false,
   outline = false,
+  small = false,
+  large = false,
   children,
   onClick,
   ...passProps
@@ -30,6 +32,8 @@ function Button({
   const classes = cx('wrapper', {
     primary,
     outline,
+    small,
+    large,
   });
 
   return (

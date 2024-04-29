@@ -66,7 +66,7 @@ function Header() {
         </div>
 
         <div className={cx('action')}>
-          <Button outline>Login 20:00</Button>
+          <Button primary>Login</Button>
         </div>
       </div>
     </header>

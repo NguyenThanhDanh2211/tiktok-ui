@@ -9,6 +9,7 @@
   border: 1px solid transparent;
 }
 
+// Button types
 .primary {
   color: var(--white);
   background-color: var(--primary);
@@ -26,4 +27,15 @@
   &:hover {
     background-color: rgba(254, 44, 65, 0.06);
   }
+}
+
+// Button sizes
+.small {
+  min-width: 88px;
+  padding: 4px 16px;
+}
+
+.large {
+  min-width: 150px;
+  padding: 14px 16px;
 }
