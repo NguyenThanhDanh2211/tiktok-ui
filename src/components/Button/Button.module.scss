@@ -5,7 +5,7 @@
   font-size: 1.6rem;
   font-weight: 600;
   min-width: 100px;
-  padding: 9px 16px;
+  padding: 7px 16px;
   border-radius: 4px;
   cursor: pointer;
   background-color: var(--white);
@@ -24,7 +24,7 @@
 
 .icon + .title,
 .title + .icon {
-  margin-left: 8px;
+  margin-left: 5px;
 }
 
 .icon {
@@ -49,6 +49,9 @@
   color: var(--white);
   background-color: var(--primary);
   border-color: var(--primary);
+  margin-left: 16px !important;
+  height: 36px;
+  font-weight: 700;
 
   &:hover {
     border-color: var(--primary);
@@ -68,8 +71,12 @@
 }
 
 .text {
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  height: 36px;
+
   &:hover {
-    text-decoration: underline;
+    background-color: rgba(22, 24, 35, 0.03);
+    text-decoration: none;
   }
 }
 

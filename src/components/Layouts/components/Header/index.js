@@ -4,18 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleQuestion,
   faCircleXmark,
-  faCloudUpload,
   faCoins,
   faEarthAsia,
   faEllipsisVertical,
   faGear,
   faKeyboard,
+  faPlus,
   faSearch,
   faSignOut,
   faSpinner,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
@@ -101,9 +100,7 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <div className={cx('logo')}>
-          <img src={images.logo} alt="Tiktok" />
-        </div>
+        <img src={images.logo} alt="Tiktok" />
 
         <HeadlessTippy
           interactive
@@ -121,10 +118,7 @@ function Header() {
           )}
         >
           <div className={cx('search')}>
-            <input
-              placeholder="Search accounts and videos"
-              spellCheck={false}
-            />
+            <input placeholder="Search" spellCheck={false} />
             <button className={cx('clear')}>
               <FontAwesomeIcon icon={faCircleXmark} />
             </button>
@@ -137,20 +131,12 @@ function Header() {
         </HeadlessTippy>
 
         <div className={cx('action')}>
-          {currentUser ? (
-            <>
-              <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
-                <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faCloudUpload} />
-                </button>
-              </Tippy>
-            </>
-          ) : (
-            <>
-              <Button text>Upload</Button>
-              <Button primary>Log in</Button>
-            </>
-          )}
+          <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+            Upload
+          </Button>
+
+          {!currentUser && <Button primary>Log in</Button>}
+
           <Menu
             items={currentUser ? userMenu : MENU_ITEMS}
             onChange={handleMenuChange}
