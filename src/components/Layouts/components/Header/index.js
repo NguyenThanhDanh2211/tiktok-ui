@@ -60,7 +60,7 @@ const MENU_ITEMS = [
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
 
-  const currentUser = true;
+  const currentUser = false;
 
   useEffect(() => {
     setTimeout(() => {
@@ -148,7 +148,7 @@ function Header() {
           ) : (
             <>
               <Button text>Upload</Button>
-              <Button primary>Login</Button>
+              <Button primary>Log in</Button>
             </>
           )}
           <Menu
