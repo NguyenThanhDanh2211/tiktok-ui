@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faArrowsRotate,
+  faBookmark,
   faCircleQuestion,
   faCircleXmark,
   faCoins,
@@ -9,11 +11,13 @@ import {
   faEllipsisVertical,
   faGear,
   faKeyboard,
+  faLightbulb,
   faPlus,
   faSearch,
   faSignOut,
   faSpinner,
   faUser,
+  faVideo,
 } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
@@ -28,6 +32,11 @@ import Menu from '~/components/Popper/Menu';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
+  {
+    icon: <FontAwesomeIcon icon={faLightbulb} />,
+    title: 'LIVE Creator Hub',
+    to: '/live',
+  },
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: 'English',
@@ -54,12 +63,16 @@ const MENU_ITEMS = [
     icon: <FontAwesomeIcon icon={faKeyboard} />,
     title: 'Keyboard shortcuts',
   },
+  {
+    icon: <FontAwesomeIcon icon={faArrowsRotate} />,
+    title: 'Dark mode',
+  },
 ];
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
 
-  const currentUser = false;
+  const currentUser = true;
 
   useEffect(() => {
     setTimeout(() => {
@@ -79,9 +92,19 @@ function Header() {
       to: '@buibichphuong',
     },
     {
+      icon: <FontAwesomeIcon icon={faBookmark} />,
+      title: 'Favorites',
+      to: '/favorite',
+    },
+    {
       icon: <FontAwesomeIcon icon={faCoins} />,
       title: 'Get coins',
       to: '/coin',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faVideo} />,
+      title: 'LIVE Studio',
+      to: 'livestudio',
     },
     {
       icon: <FontAwesomeIcon icon={faGear} />,
