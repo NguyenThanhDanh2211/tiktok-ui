@@ -6,7 +6,7 @@
   --primary: #fe2c55;
   --black: #000;
   --white: #fff;
-  --text-color: #333;
+  --text-color: #161823;
 
   // Default layout
   --default-layout-header-height: 60px;
@@ -18,13 +18,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'IBM Plex Sans', san-serif;
 }
 
 html {
   font-size: 62.5%;
 }
 body {
-  font-family: 'IBM Plex Sans', san-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizespeed;
