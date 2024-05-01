@@ -2,23 +2,12 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faArrowsRotate,
-  faBookmark,
-  faCircleQuestion,
   faCircleXmark,
-  faCoins,
-  faEarthAsia,
   faEllipsisVertical,
-  faGear,
-  faKeyboard,
-  faLightbulb,
   faPlus,
-  faSearch,
-  faSignOut,
   faSpinner,
-  faUser,
-  faVideo,
 } from '@fortawesome/free-solid-svg-icons';
+import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
@@ -28,17 +17,33 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import {
+  DarkmodeIcon,
+  FavoritesIcon,
+  FeedbackIcon,
+  GetcoinIcon,
+  InboxIcon,
+  KeyboardIcon,
+  LanguageIcon,
+  LiveCreatorHubIcon,
+  LivestudioIcon,
+  LogoutIcon,
+  MessageIcon,
+  SearchIcon,
+  SettingIcon,
+  UserIcon,
+} from '~/components/Icon';
 
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
   {
-    icon: <FontAwesomeIcon icon={faLightbulb} />,
+    icon: <LiveCreatorHubIcon />,
     title: 'LIVE Creator Hub',
     to: '/live',
   },
   {
-    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    icon: <LanguageIcon />,
     title: 'English',
     children: {
       title: 'Language',
@@ -55,16 +60,16 @@ const MENU_ITEMS = [
     },
   },
   {
-    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    icon: <FeedbackIcon />,
     title: 'Feedback and help',
     to: '/feedback',
   },
   {
-    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    icon: <KeyboardIcon />,
     title: 'Keyboard shortcuts',
   },
   {
-    icon: <FontAwesomeIcon icon={faArrowsRotate} />,
+    icon: <DarkmodeIcon />,
     title: 'Dark mode',
   },
 ];
@@ -72,7 +77,7 @@ const MENU_ITEMS = [
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
 
-  const currentUser = true;
+  const currentUser = false;
 
   useEffect(() => {
     setTimeout(() => {
@@ -87,33 +92,33 @@ function Header() {
 
   const userMenu = [
     {
-      icon: <FontAwesomeIcon icon={faUser} />,
+      icon: <UserIcon />,
       title: 'View profile',
       to: '@buibichphuong',
     },
     {
-      icon: <FontAwesomeIcon icon={faBookmark} />,
+      icon: <FavoritesIcon />,
       title: 'Favorites',
       to: '/favorite',
     },
     {
-      icon: <FontAwesomeIcon icon={faCoins} />,
+      icon: <GetcoinIcon />,
       title: 'Get coins',
       to: '/coin',
     },
     {
-      icon: <FontAwesomeIcon icon={faVideo} />,
+      icon: <LivestudioIcon />,
       title: 'LIVE Studio',
       to: 'livestudio',
     },
     {
-      icon: <FontAwesomeIcon icon={faGear} />,
+      icon: <SettingIcon />,
       title: 'Setting',
       to: '/setting',
     },
     ...MENU_ITEMS,
     {
-      icon: <FontAwesomeIcon icon={faSignOut} />,
+      icon: <LogoutIcon />,
       title: 'Log out',
       to: '/logout',
       separate: true,
@@ -148,7 +153,7 @@ function Header() {
             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
             <button className={cx('search-btn')}>
-              <FontAwesomeIcon icon={faSearch} />
+              <SearchIcon />
             </button>
           </div>
         </HeadlessTippy>
@@ -158,7 +163,23 @@ function Header() {
             Upload
           </Button>
 
-          {!currentUser && <Button primary>Log in</Button>}
+          {currentUser ? (
+            <>
+              <Tippy delay={[0, 200]} content="Messages" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <MessageIcon />
+                </button>
+              </Tippy>
+
+              <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <InboxIcon />
+                </button>
+              </Tippy>
+            </>
+          ) : (
+            <Button primary>Log in</Button>
+          )}
 
           <Menu
             items={currentUser ? userMenu : MENU_ITEMS}
