@@ -33,6 +33,7 @@ import {
   SettingIcon,
   UserIcon,
 } from '~/components/Icon';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -77,7 +78,7 @@ const MENU_ITEMS = [
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
 
-  const currentUser = false;
+  const currentUser = true;
 
   useEffect(() => {
     setTimeout(() => {
@@ -186,11 +187,13 @@ function Header() {
             onChange={handleMenuChange}
           >
             {currentUser ? (
-              <img
-                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/7a2097efcb5b9944b9ea06c89c838627.jpeg?lk3s=30310797&x-expires=1714554000&x-signature=bN%2FNpFS3k0tNAfWnDrv0QSD7BmQ%3D"
-                className={cx('user-avatar')}
-                alt="Bich Phuong"
-              />
+              <div>
+                <Image
+                  className={cx('user-avatar')}
+                  src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/7a2097efcb5b9944b9ea06c89c838627.jpeg?lk3s=30310797&x-expires=1714554000&x-signature=bN%2FNpFS3k0tNAfWnDrv0QSD7BmQ%3D-loi"
+                  alt="Bich Phuong"
+                />
+              </div>
             ) : (
               <button className={cx('more-btn')}>
                 <FontAwesomeIcon icon={faEllipsisVertical} />
