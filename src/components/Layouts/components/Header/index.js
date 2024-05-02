@@ -129,7 +129,9 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <img src={images.logo} alt="Tiktok" />
+        <div className={cx('wrapper-logo')}>
+          <img className={cx('logo')} src={images.logo} alt="Tiktok" />
+        </div>
 
         <HeadlessTippy
           interactive
