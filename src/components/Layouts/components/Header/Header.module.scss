@@ -20,15 +20,10 @@
   justify-content: space-between;
 }
 
-.wrapper-logo {
-  height: 100%;
-  width: 300px;
-}
-
 .logo {
+  display: flex;
   height: 42px;
-  width: 118px;
-  margin-top: 8px;
+  width: 300px;
 }
 
 // Action
@@ -70,7 +65,7 @@
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--white);
-  font-family: 'ProximaNova', sans-serif;
+  font-family: var(--font-family);
   background-color: var(--primary);
 }
 
