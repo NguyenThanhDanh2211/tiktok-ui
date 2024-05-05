@@ -10,6 +10,7 @@ import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 import Live from '~/pages/Live';
+import Signup from '~/pages/Signup';
 
 // Public routes
 const publicRoutes = [
@@ -24,6 +25,10 @@ const publicRoutes = [
   {
     path: config.routes.live,
     component: Live,
+  },
+  {
+    path: config.routes.signup,
+    component: Signup,
   },
   {
     path: config.routes.profile,

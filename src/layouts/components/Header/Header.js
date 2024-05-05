@@ -5,6 +5,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
+import { useUser } from '~/contexts';
 import config from '~/config';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
@@ -69,7 +70,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-  const currentUser = true;
+  const { currentUser } = useUser();
 
   // Handle logic
   const handleMenuChange = (menuItem) => {

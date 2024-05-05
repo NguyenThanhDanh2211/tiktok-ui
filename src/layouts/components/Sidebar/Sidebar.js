@@ -1,5 +1,7 @@
 import classNames from 'classnames/bind';
 import style from './Sidebar.module.scss';
+
+import { useUser } from '~/contexts';
 import Menu, { MenuItem } from './Menu';
 import config from '~/config';
 import {
@@ -13,12 +15,25 @@ import {
   FriendsIcon,
   LIVEActiveIcon,
   LIVEIcon,
+  UserIcon,
 } from '~/components/Icons';
 import Image from '~/components/Image';
 
 const cx = classNames.bind(style);
 
 function Sidebar() {
+  const { currentUser } = useUser();
+
+  const profileIcon = currentUser ? (
+    <Image
+      className={cx('user-avatar')}
+      src="https://fb.com/pic"
+      alt="Profile"
+    />
+  ) : (
+    <UserIcon className={cx('icon')} />
+  );
+
   return (
     <aside className={cx('wrapper')}>
       <Menu>
@@ -54,21 +69,10 @@ function Sidebar() {
         />
         <MenuItem
           title="Profile"
-          to={config.routes.profile}
-          icon={
-            <Image
-              className={cx('user-avatar')}
-              src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/7a2097efcb5b9944b9ea06c89c838627.jpeg?lk3s=30310797&x-expires=1714554000&x-signature=bN%2FNpFS3k0tNAfWnDrv0QSD7BmQ%3D"
-              alt="Bich Phuong"
-            />
-          }
-          activeIcon={
-            <Image
-              className={cx('user-avatar')}
-              src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/7a2097efcb5b9944b9ea06c89c838627.jpeg?lk3s=30310797&x-expires=1714554000&x-signature=bN%2FNpFS3k0tNAfWnDrv0QSD7BmQ%3D"
-              alt="Bich Phuong"
-            />
-          }
+          to={currentUser ? config.routes.profile : config.routes.signup}
+          // to={config.routes.profile}
+          icon={profileIcon}
+          activeIcon={profileIcon}
         />
       </Menu>
     </aside>

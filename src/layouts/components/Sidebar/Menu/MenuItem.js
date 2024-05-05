@@ -25,7 +25,7 @@ MenuItem.propTypes = {
   title: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,
-  activeIcon: PropTypes.isRequired,
+  activeIcon: PropTypes.node.isRequired,
 };
 
 export default MenuItem;

@@ -7,6 +7,7 @@ const routes = {
   friends: '/friends',
   explore: '/explore',
   live: '/live',
+  signup: '/signup',
 };
 
 export default routes;
