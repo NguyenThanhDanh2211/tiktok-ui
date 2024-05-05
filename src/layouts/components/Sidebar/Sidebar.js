@@ -18,6 +18,7 @@ import {
   UserIcon,
 } from '~/components/Icons';
 import Image from '~/components/Image';
+import FollowingAccounts from '~/components/FollowingAccounts';
 
 const cx = classNames.bind(style);
 
@@ -70,11 +71,12 @@ function Sidebar() {
         <MenuItem
           title="Profile"
           to={currentUser ? config.routes.profile : config.routes.signup}
-          // to={config.routes.profile}
           icon={profileIcon}
           activeIcon={profileIcon}
         />
       </Menu>
+      <hr className={cx('custom-hr')} />
+      <FollowingAccounts label={'Following accounts'} />
     </aside>
   );
 }
