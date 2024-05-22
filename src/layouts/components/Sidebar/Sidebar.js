@@ -37,46 +37,49 @@ function Sidebar() {
 
   return (
     <aside className={cx('wrapper')}>
-      <Menu>
-        <MenuItem
-          title="For You"
-          to={config.routes.home}
-          icon={<ForYouIcon />}
-          activeIcon={<ForYouActiveIcon />}
-        />
-        <MenuItem
-          title="Following"
-          to={config.routes.following}
-          icon={<FollowingIcon />}
-          activeIcon={<FollowingActiveIcon />}
-        />
-        <MenuItem
-          title="Friends"
-          to={config.routes.friends}
-          icon={<FriendsIcon />}
-          activeIcon={<FriendsActiveIcon />}
-        />
-        <MenuItem
-          title="Explore"
-          to={config.routes.explore}
-          icon={<ExploreIcon />}
-          activeIcon={<ExploreActiveIcon />}
-        />
-        <MenuItem
-          title="LIVE"
-          to={config.routes.live}
-          icon={<LIVEIcon />}
-          activeIcon={<LIVEActiveIcon />}
-        />
-        <MenuItem
-          title="Profile"
-          to={currentUser ? config.routes.profile : config.routes.signup}
-          icon={profileIcon}
-          activeIcon={profileIcon}
-        />
-      </Menu>
+      <div style={{ marginBottom: '8px' }}>
+        <Menu>
+          <MenuItem
+            title="For You"
+            to={config.routes.home}
+            icon={<ForYouIcon />}
+            activeIcon={<ForYouActiveIcon />}
+          />
+          <MenuItem
+            title="Following"
+            to={config.routes.following}
+            icon={<FollowingIcon />}
+            activeIcon={<FollowingActiveIcon />}
+          />
+          <MenuItem
+            title="Friends"
+            to={config.routes.friends}
+            icon={<FriendsIcon />}
+            activeIcon={<FriendsActiveIcon />}
+          />
+          <MenuItem
+            title="Explore"
+            to={config.routes.explore}
+            icon={<ExploreIcon />}
+            activeIcon={<ExploreActiveIcon />}
+          />
+          <MenuItem
+            title="LIVE"
+            to={config.routes.live}
+            icon={<LIVEIcon />}
+            activeIcon={<LIVEActiveIcon />}
+          />
+          <MenuItem
+            title="Profile"
+            to={currentUser ? config.routes.profile : config.routes.signup}
+            icon={profileIcon}
+            activeIcon={profileIcon}
+          />
+        </Menu>
+      </div>
       <hr className={cx('custom-hr')} />
       <FollowingAccounts label={'Following accounts'} />
+      <hr className={cx('custom-hr')} />
     </aside>
   );
 }
